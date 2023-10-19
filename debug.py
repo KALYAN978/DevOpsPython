@@ -1,93 +1,62 @@
-#TODO: 2. Check resources sufficient to make drink order.
 
-MENU = {
-    "espresso": {
-        "ingredients": {
-            "water": 50,
-            "coffee": 18,
-        },
-        "cost": 1.5,
-    },
-    "latte": {
-        "ingredients": {
-            "water": 200,
-            "milk": 150,
-            "coffee": 24,
-        },
-        "cost": 2.5,
-    },
-    "cappuccino": {
-        "ingredients": {
-            "water": 250,
-            "milk": 100,
-            "coffee": 24,
-        },
-        "cost": 3.0,
-    }
-}
+#choosing a random number btw 1 and 100
+from random import randint
+from logo import logoo
 
-profit = 0
-resources = {
-    "water": 300,
-    "milk": 200,
-    "coffee": 100,
-}
-
-# TODO: 1.print report of all coffee machine resources
-
-def is_resource_sufficient(order_ingredients):
-    """Returns True when order can be made, False if ingredients are insufficient"""
-    for item in order_ingredients:
-        if order_ingredients[item] >= resources[item]:
-            print(f"Sorry there is not enough water.{item}")
-            return False
-    return True
+EASY_LEVEL_TURNS = 10
+HARD_LEVEL_TURNS = 5
 
 
-def is_transaction_successful(money_received, drink_cost):
-    """Return True when the payment is accepted, or False if money is sufficient"""
-    if money_received >= drink_cost:
-        change = round(money_received - drink_cost, 2)
-        print(f"Here is ${change} in change")
-        global profit
-        profit += drink_cost
-        return True
-    else:
-        print("sorry that's not enough money.Money refunded")
-        return False
+#Make a function to set difficulty
+def set_difficulty():
+    level = input("Choose a difficulty easy or hard: ")
+    if level == "easy":
+        return EASY_LEVEL_TURNS
+    else :
+        return HARD_LEVEL_TURNS
 
 
-def process_coins():
-    """Returns the total calculated from coins inserted"""
-    print("Please insert coins:")
-    total = int(input("How many quarters?: ")) * 0.25     #1dollar = 0.25 quarter  # it sets the value
-    total += int(input("How many dimes?: ")) * 0.1                         # we r adding to the current value
-    total += int(input("How many nickels?: ")) * 0.5
-    total += int(input("How many pennies?: ")) * 0.01
-    return total
+# Function to check users guess against actual answer
+def check_answer(guess, answer, turns):
+    """" checks answer against guess. Returns the number of turns remaining."""
+    if guess > answer:
+        print("Too high")
+        return turns - 1
+    elif guess < answer:
+        print("Too low.")
+        return turns - 1
+    else :
+        print(f"You got it! The answer was {answer}")
 
-
-def make_coffee(drink_name, order_ingredients):
-    """Deduct the required ingredients from the resources"""
-    for item in order_ingredients:
-        resources[item] -= order_ingredients[item]
-    print(f"Here is your {drink_name} ☕")
-
-
-is_on = True
-while is_on:
-    choice = input("What would you like? (espresso/latte/cappuccino): ")
-    if choice == "off":
-        is_on = False
-    elif choice =="report":
-        print(f"Water: {resources['water']}ml")
-        print(f"Milk: {resources['milk']}ml")
-        print(f"Coffee: {resources['coffee']}g")
-        print(f"Money: ${profit}")
-    else:
-        drink = MENU[choice]
-        if is_resource_sufficient(drink["ingredients"]):
-            payment = process_coins()
-            if is_transaction_successful(payment, drink["cost"]):
-                make_coffee(choice, drink["ingredients"])
-
+def game():
+    #choosing a random number btw 1 and 100
+    print("Welcome to the Number guessing game")
+    print("Im thinking of random number between 1 and 100.")
+    answer = randint(1,100)
+    print(f"Pssst, the correct answer is {answer}")
+        
+        
+    #allowing the user to set the difficulty    
+    turns = set_difficulty()
+       
+    
+    
+    #Repeat the guessing functionality if they get it wrong
+    guess = 0
+    while guess != answer:
+        print(f"You have {turns} attempts remaining to guess the number") 
+        #now let the user guess the number
+        guess = int(input("Guess a number: "))
+        
+        #Track the number of turns and reduce by 1 if they get it wrong.
+        turns = check_answer(guess,answer, turns)  #we are updating the local variable every time we check the answer
+        if turns == 0:
+            print("You've run out of guesses, You lose")
+            return
+        elif guess != answer:
+            print("Guess again.")
+            
+            
+            
+            
+game()
