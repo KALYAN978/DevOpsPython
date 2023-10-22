@@ -1,26 +1,16 @@
-from menu import Menu, MenuItem
-from coffee_maker import CoffeeMaker
-from money_machine import MoneyMachine
+from tkinter import *
 
-money_machine = MoneyMachine()  #creating objects
-coffee_maker = CoffeeMaker()
-is_on = True
-
-menu = Menu()
-
-while is_on:
-    options = menu.get_items()
-    choice = input(f"What would you like? ({options}): ")
-    if choice == "off":
-        is_on = False
-    elif choice == "report":
-        coffee_maker.report()
-        money_machine.report()
-    else:
-        drink = menu.find_drink(choice)
-        if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost) :
-            coffee_maker.make_coffee(drink)
+window = Tk()
 
 
+r = Label(bg = "red", width = 20, height = 5)
+r.grid(row = 0, column = 0)
 
-money_machine.report()
+g =Label(bg = "green", width = 20, height = 5)
+g.grid(row = 1, column = 1)
+
+b = Label(bg = "blue", width=40, height = 5 )
+b.grid(row=2, column=0, columnspan = 2)     #columnspan = how many columns this particular thing will occupy
+
+
+window.mainloop()

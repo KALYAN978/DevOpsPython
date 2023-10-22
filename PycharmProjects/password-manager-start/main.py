@@ -22,7 +22,7 @@ def generate_password():
     password_list = []    #storing password in a list
 
     for char in range(nr_letters):
-    password_list.append(random.choice(letters))
+    password_list.a ppend(random.choice(letters))
 
     for char in range(nr_symbols):
     password_list.append(random.choice(symbols))
