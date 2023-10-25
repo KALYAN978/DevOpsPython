@@ -10,6 +10,7 @@ programming_dictionary = {"Bug": "An error in a program that prevents the progra
 
 
 #For printing the elements in the index is  as same as the printing array
+#How to print an element in the dictionary
 print(programming_dictionary["Bug"])
 
 
@@ -35,3 +36,4 @@ for key in programming_dictionary:
     print(programming_dictionary[key])
     
     
+ 

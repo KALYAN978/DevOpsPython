@@ -4,6 +4,9 @@ Spyder Editor
 
 This is a temporary script file.
 """
-a = "Hello,world"
-b = a.split(",")
-print(b)
+def greet_with(name,location):
+    print(f"Hello {name}")
+    print(f"What is in {location}")
+    
+    
+greet_with("kalyan","hyderabad")
