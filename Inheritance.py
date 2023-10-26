@@ -16,6 +16,6 @@ class Person:
 class Student(Person):
     pass
 
-s = Student("kalyan","Js")
+s = Student("kalyan","Js") 
 print(s.firstname)
 s.printname()

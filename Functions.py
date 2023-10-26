@@ -27,8 +27,8 @@ greet_with_name("Kalyan")
 
 #Functions with more than 1 input
 def greet_with(name,location):
-    print(f"Hello {name}")
-    print(f"what is ur {location}")
+    print(f"///';':Hello {name}")
+    # print(f"what is ur {location}")
     
 greet_with("Kalyan", "India")
 
