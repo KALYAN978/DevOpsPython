@@ -16,7 +16,7 @@ class Person:
 
 class Student(Person):
     def __init__(self, fname, lname):
-        super().__init__(fname, lname)
+        super().__init__(fname, lname)  #It will inherit all the properties of Parent Class
         
         
 x = Student("Firstname","Lastname")
