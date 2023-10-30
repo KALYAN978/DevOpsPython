@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import *  #tkinter is used for creating graphical user interface
 from tkinter import messagebox  #its a module not a class
 from random import choice, randint, shuffle
 import pyperclip
