@@ -11,6 +11,7 @@ Created on Tue Oct 31 14:34:49 2023
 a = 0
 b = 1
 
+
 n = int(input("Enter n for how many times generate series: "))
 print("Fibonacci Series")
 

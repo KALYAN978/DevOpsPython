@@ -32,6 +32,6 @@ if(score < 10) or (score > 90):
 elif (score >= 40) and (score <= 50):
     print(f"Your score is {score}, you are alright together")
 else:
-    print(f"Your score is {score}.")
+a    print(f"Your score is {score}.")
 
 

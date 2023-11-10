@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Nov  9 15:14:56 2023
+
+@author: kalypatn
+"""
+
 a = int(input("Enter the first No:"))
 b = int(input("Enter a second No:"))
 
