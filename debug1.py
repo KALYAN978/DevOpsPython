@@ -1,2 +1,5 @@
-x = (lambda x: (x%2 and 'Odd' or 'Even'))
-print("Number is", x(6))
+def double(n):
+    return lambda a:a * n
+
+cal = double(2)
+print("Result: ",cal(4))
